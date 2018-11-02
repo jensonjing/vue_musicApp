@@ -17,7 +17,7 @@
           </span>
           <!-- 中部tab -->
           <tab>
-            <tab-item style="background-color:#e20d3e;" selected @on-item-click="onItemClick">
+            <tab-item style="background-color:#e20d3e;" @on-item-click="onItemClick">
               <img ref='music' src="@/assets/music.svg" class="icon_2">
             </tab-item>
             <tab-item style="background-color:#e20d3e;" @on-item-click="onItemClick">
@@ -131,6 +131,9 @@ var $ = require('jquery')
 import music from './assets/music_g.svg'
 import cd from './assets/cd_g.svg'
 import mv from './assets/mv_g.svg'
+import w_music from './assets/music.svg'
+import w_cd from './assets/cd.svg'
+import w_mv from './assets/mv.svg'
 export default {
   directives: {
     TransferDom
@@ -155,14 +158,23 @@ export default {
       if(index==0){
         this.$refs.music.src=music;
         this.$router.push({name:'localmusic',params:{id:1}});
+        //还原另外两个图标
+        this.$refs.cd.src=w_cd;
+        this.$refs.mv.src=w_mv;
       };
       if(index==1){
         this.$refs.cd.src=cd;
         this.$router.push({name:'HomeIndex',params:{id:2}});
+        //还原另外两个图标
+        this.$refs.music.src=w_music;
+        this.$refs.mv.src=w_mv;
       }
       if(index==2){
         this.$refs.mv.src=mv;
         this.$router.push('/MoreList');
+        //还原另外两个图标
+        this.$refs.cd.src=w_cd;
+        this.$refs.music.src=w_music;
       }
     }
   },
