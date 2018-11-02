@@ -20,8 +20,8 @@
             <tab-item style="background-color:#e20d3e;" @on-item-click="onItemClick">
               <img ref='music' src="@/assets/music.svg" class="icon_2">
             </tab-item>
-            <tab-item style="background-color:#e20d3e;" @on-item-click="onItemClick">
-              <img ref='cd' src="@/assets/cd.svg" class="icon_2">
+            <tab-item style="background-color:#e20d3e;" active-class='select' @on-item-click="onItemClick">
+              <img ref='cd' src="@/assets/cd_g.svg" class="icon_2">
             </tab-item>
             <tab-item style="background-color:#e20d3e;" @on-item-click="onItemClick">
               <img ref='mv' src="@/assets/mv.svg" class="icon_2">
@@ -176,9 +176,12 @@ export default {
         this.$refs.cd.src=w_cd;
         this.$refs.music.src=w_music;
       }
-    }
+    },
   },
   mounted () {
+    
+  },
+  created() {
     
   },
   computed: {
